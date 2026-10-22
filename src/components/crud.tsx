@@ -7,7 +7,7 @@ import { useStore } from "@/lib/store";
 export type FieldDef<T> = {
   key: keyof T & string;
   label: string;
-  type?: "text" | "number" | "email" | "select" | "multi" | "textarea" | "switch";
+  type?: "text" | "number" | "email" | "date" | "select" | "multi" | "textarea" | "switch";
   options?: { value: string; label: string }[];
   required?: boolean;
   wide?: boolean;

@@ -35,7 +35,7 @@ function Page() {
         { key: "firstName", label: "Nombre", required: true },
         { key: "lastName", label: "Apellido", required: true },
         { key: "dni", label: "DNI", required: true },
-        { key: "birth", label: "Fecha de nacimiento", required: true },
+        { key: "birth", label: "Fecha de nacimiento", type: "date", required: true },
         { key: "email", label: "Email", type: "email", required: true },
         { key: "phone", label: "Teléfono" },
         { key: "insuranceId", label: "Cobertura", type: "select", options: s.insurances.map((x) => ({ value: x.id, label: x.name })), required: true },
