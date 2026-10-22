@@ -129,3 +129,9 @@
     }
   }
 }
+
+@keyframes scan {
+  0%, 100% { top: 15%; }
+  50% { top: 85%; }
+}
+.scan-line { animation: scan 1.4s ease-in-out infinite; }
