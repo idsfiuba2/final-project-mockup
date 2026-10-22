@@ -67,7 +67,7 @@ function Page() {
         <Chart title="Resultado de los turnos" subtitle="Período seleccionado">
           <PieChart>
             <Pie data={statusPie} dataKey="value" nameKey="name" innerRadius={60} outerRadius={100} paddingAngle={3}>
-              {statusPie.map((_, i) => <Cell key={i} fill={[COLORS[1], COLORS[4], COLORS[3]][i]} />)}
+              {statusPie.map((_, i) => <Cell key={i} fill={[COLORS[1], COLORS[4], COLORS[3]][i] ?? "var(--primary)"} />)}
             </Pie>
             <Tooltip />
             <Legend />
