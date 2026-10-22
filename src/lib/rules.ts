@@ -144,3 +144,13 @@ export function validateBlock(block: ScheduleBlock, existing: ScheduleBlock[]): 
   );
   return clash ? "El bloque se superpone con otro bloque del mismo profesional." : null;
 }
+
+/** El paciente puede cancelar solo turnos activos y con la anticipación mínima configurada. */
+export function canPatientCancel(a: Appointment, now: Date, cancelMinHours: number): { ok: boolean; reason?: string } {
+  if (a.status !== "Reservado" && a.status !== "Confirmado") return { ok: false, reason: "El turno ya no está activo." };
+  if (a.arrivedAt) return { ok: false, reason: "La llegada ya fue registrada." };
+  const hours = (parseISO(a.start).getTime() - now.getTime()) / 3600000;
+  if (hours < cancelMinHours)
+    return { ok: false, reason: `Solo se puede cancelar con al menos ${cancelMinHours} h de anticipación. Comunicate con recepción.` };
+  return { ok: true };
+}
